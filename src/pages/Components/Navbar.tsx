@@ -9,7 +9,6 @@ import {
   Button,
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem,
 } from "@nextui-org/react";
 import { useRouter } from "next/router";
 
@@ -50,7 +49,7 @@ const NavbarComponent = () => {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">Andy&#39;s portfolio</p>
+          <p className="font-bold text-inherit uppercase">Andy&#39;s portfolio</p>
         </NavbarBrand>
         {navigationItems.map((item) => {
           return (
@@ -60,7 +59,7 @@ const NavbarComponent = () => {
                   href={item.href}
                   className={`${
                     routerUse.pathname === item.href
-                      ? "text-blue-500"
+                      ? "text-blue-500 transition-all duration-400"
                       : "default-styling"
                   }`}
                 >
@@ -92,7 +91,7 @@ const NavbarComponent = () => {
                   href={item.href}
                   className={`${
                     routerUse.pathname === item.href
-                      ? "text-blue-500"
+                      ? "text-blue-500 transition-all duration-400"
                       : "default-styling"
                   }`}
                 >
