@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import {
   Navbar,
@@ -9,8 +9,51 @@ import {
   Button,
   NavbarMenuToggle,
   NavbarMenu,
+  Dropdown,
+  DropdownMenu,
+  DropdownTrigger,
+  DropdownItem,
 } from "@nextui-org/react";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
+import { HiMoon, HiOutlineCog6Tooth, HiMiniSun } from "react-icons/hi2";
+
+const Settings = () => {
+  const [mounted, setMounted] = React.useState(false);
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <>
+      <Dropdown backdrop="blur">
+        <DropdownTrigger>
+          <Button isIconOnly variant="flat" className="w-auto">
+            <HiOutlineCog6Tooth className="text-lg" />
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu
+          variant="faded"
+          aria-label="Static Actions"
+          disabledKeys={theme === "dark" ? ["dark"] : ["light"]}
+        >
+          <DropdownItem key="dark" onClick={() => setTheme("dark")}>
+            <span className="flex text-center">
+              <HiMoon className="mr-2  text-lg" /> Dark mode
+            </span>
+          </DropdownItem>
+          <DropdownItem key="light" onClick={() => setTheme("light")}>
+            <span className="flex text-center">
+              <HiMiniSun className="mr-2 text-lg" /> Light Mode
+            </span>
+          </DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" className="text-danger" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    </>
+  );
+};
 
 export const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -34,7 +77,7 @@ const navigationItems = [
 const NavbarComponent = () => {
   const routerUse = useRouter();
   return (
-    <Navbar>
+    <Navbar maxWidth="lg">
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -42,14 +85,18 @@ const NavbarComponent = () => {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">Andy&#39;s portfolio</p>
+          <p className="font-bold text-inherit uppercase">
+            Andy&#39;s portfolio
+          </p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit uppercase">Andy&#39;s portfolio</p>
+          <p className="font-bold text-inherit uppercase">
+            Andy&#39;s portfolio
+          </p>
         </NavbarBrand>
         {navigationItems.map((item) => {
           return (
@@ -72,9 +119,9 @@ const NavbarComponent = () => {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/">Login</Link>
-        </NavbarItem>
+        <Settings />
+        {/* <NavbarItem className="hidden lg:flex">
+        </NavbarItem> */}
         <NavbarItem>
           <Button as={Link} color="primary" href="#">
             Sign Up
