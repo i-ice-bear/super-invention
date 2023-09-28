@@ -11,7 +11,7 @@ const HomeComponent = () => {
             <motion.h1
               className="text-6xl"
             >
-              Hi, I'm Obvillion
+              Hi, I&apos;m Obvillion
             </motion.h1>
             <h3 className="text-md">
               A sciene stream student,
