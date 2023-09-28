@@ -17,8 +17,8 @@ import {
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import { HiMoon, HiOutlineCog6Tooth, HiMiniSun } from "react-icons/hi2";
-import {AcmeLogo} from './icons/AcmeLogo'
-
+import { AcmeLogo } from "./icons/AcmeLogo";
+import { motion } from "framer-motion";
 
 const Settings = () => {
   const [mounted, setMounted] = React.useState(false);
@@ -29,7 +29,23 @@ const Settings = () => {
       <Dropdown backdrop="blur">
         <DropdownTrigger>
           <Button isIconOnly variant="flat" className="w-auto">
-            <HiOutlineCog6Tooth className="text-lg" />
+            <motion.div
+              initial={{ scale: 1 }}
+              animate={{
+                rotate: [0, 360],
+                scale: 1
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                ease: "linear",
+                duration: 2,
+                repeat: Infinity,
+              }}
+            >
+              <HiOutlineCog6Tooth className="text-lg" />
+            </motion.div>
           </Button>
         </DropdownTrigger>
         <DropdownMenu
@@ -47,17 +63,15 @@ const Settings = () => {
               <HiMiniSun className="mr-2 text-lg" /> Light Mode
             </span>
           </DropdownItem>
-          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="edit">Login</DropdownItem>
           <DropdownItem key="delete" className="text-danger" color="danger">
-            Delete file
+            Logout
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
     </>
   );
 };
-
-
 
 const navigationItems = [
   { name: "Home", href: "/", color: "foreground" },
