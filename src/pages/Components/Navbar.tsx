@@ -16,8 +16,8 @@ import {
 } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
-import { HiMoon, HiOutlineCog6Tooth, HiMiniSun } from "react-icons/hi2";
-import { AcmeLogo } from "./icons/AcmeLogo";
+import { HiMoon, HiOutlineCog6Tooth, HiMiniSun, HiUserCircle, HiUserMinus } from "react-icons/hi2";
+import  AcmeLogo  from "./icons/AcmeLogo";
 import { motion } from "framer-motion";
 
 const Settings = () => {
@@ -63,9 +63,15 @@ const Settings = () => {
               <HiMiniSun className="mr-2 text-lg" /> Light Mode
             </span>
           </DropdownItem>
-          <DropdownItem key="edit">Login</DropdownItem>
+          <DropdownItem key="edit">
+             <span className="flex text-center">
+              <HiUserCircle className="mr-2 text-lg" /> Login
+            </span>
+          </DropdownItem>
           <DropdownItem key="delete" className="text-danger" color="danger">
-            Logout
+          <span className="flex text-center">
+              <HiUserMinus className="mr-2 text-lg" /> Logout
+            </span>
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>

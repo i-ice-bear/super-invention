@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export const AcmeLogo = () => (
+ const AcmeLogo = () => (
   <motion.svg
     initial={{ scale: 0 }}
     animate={{ rotate: 360, scale: 1 }}
@@ -25,3 +25,5 @@ export const AcmeLogo = () => (
     />
   </motion.svg>
 );
+
+export default AcmeLogo;
