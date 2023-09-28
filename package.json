@@ -16,6 +16,9 @@
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "@react-three/drei": "^9.86.0",
+    "@react-three/fiber": "^8.14.3",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -24,9 +27,12 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "framer-motion": "^10.16.4",
+    "maath": "^0.10.4",
     "next-themes": "^0.2.1",
     "postcss": "latest",
     "react-icons": "^4.11.0",
+    "react-tilt": "^1.0.2",
+    "react-vertical-timeline-component": "^3.6.0",
     "tailwindcss": "latest",
     "typescript": "latest"
   }
