@@ -20,13 +20,13 @@ import { HiMoon, HiOutlineCog6Tooth, HiMiniSun, HiUserCircle, HiUserMinus } from
 import  AcmeLogo  from "./icons/AcmeLogo";
 import { motion } from "framer-motion";
 
-const Settings = () => {
+const Settings = (props: any) => {
   const [mounted, setMounted] = React.useState(false);
   const { theme, setTheme } = useTheme();
 
   return (
     <>
-      <Dropdown backdrop="blur">
+      <Dropdown backdrop="blur" className={props.className}>
         <DropdownTrigger>
           <Button isIconOnly variant="flat" className="w-auto">
             <motion.div
@@ -132,11 +132,11 @@ const NavbarComponent = () => {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <Settings />
+        <Settings className="me-4"/>
         {/* <NavbarItem className="hidden lg:flex">
         </NavbarItem> */}
         <NavbarItem>
-          <Button as={Link} color="primary" href="#">
+          <Button as={Link} color="primary" href="#" className="me-4">
             Sign Up
           </Button>
         </NavbarItem>
