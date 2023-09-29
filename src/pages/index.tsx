@@ -1,10 +1,12 @@
 import Image from 'next/image'
-import HomeComponent from './page/HomePage'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <>
-    <HomeComponent />
+    <h1>Billo bagge bediyan raake ki karegi, bagge bagge billo ne ae rakki karegi</h1>
     
     </>
   )
